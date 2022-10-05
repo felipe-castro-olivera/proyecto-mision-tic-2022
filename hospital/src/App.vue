@@ -13,8 +13,13 @@
 
       <v-divider></v-divider>
 
-      <v-list dense>
-        <v-list-item v-for="item in items" :key="item.title" link>
+      <v-list dense class="mt-5" shaped>
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          link
+          :to="item.ruta"
+        >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -46,13 +51,27 @@
 <script>
 export default {
   name: "App",
-
   data: () => ({
     drawer: null,
     items: [
-      { title: "Home", icon: "mdi-view-dashboard" },
-      { title: "About", icon: "mdi-forum" },
+      { title: "Inicio", icon: "mdi-home", ruta: "/" },
+      {
+        title: "Agregar Paciente",
+        icon: "mdi-account-injury",
+        ruta: "registrar-paciente",
+      },
+      {
+        title: "Agregar Familiar",
+        icon: "mdi-human-male-female-child",
+        ruta: "registrar-familiar-paciente",
+      },
+      {
+        title: "Agregar Doctor",
+        icon: "mdi-doctor",
+        ruta: "registrar-doctor",
+      },
     ],
   }),
 };
 </script>
+
